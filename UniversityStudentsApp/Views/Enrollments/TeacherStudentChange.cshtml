@@ -1,0 +1,50 @@
+﻿@model UniversityStudentsApp.Models.Enrollment
+@{
+    ViewData["Title"] = "TeacherStudentChange";
+}
+
+<h2>Student @Html.DisplayFor(item => item.Student.FullName) </h2>
+<h3> @Html.DisplayFor(item => item.Student.StudentId)</h3>
+<h3>@Html.DisplayFor(item => item.Course.Title)</h3>
+
+<form asp-action="ProfessorStudentChange">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="ExamPoints" class="control-label"></label>
+        <input asp-for="ExamPoints" value="@Model.ExamPoints" />
+        <span asp-validation-for="ExamPoints" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProjectPoints" class="control-label"></label>
+        <input asp-for="ProjectPoints" value="@Model.ProjectPoints" />
+        <span asp-validation-for="ProjectPoints" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SeminarPoints" class="control-label"></label>
+        <input asp-for="SeminarPoints" value="@Model.SeminarPoints" />
+        <span asp-validation-for="SeminarPoints" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AdditionalPoints" class="control-label"></label>
+        <input asp-for="AdditionalPoints" value="@Model.AdditionalPoints" />
+        <span asp-validation-for="AdditionalPoints" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Grade" class="control-label"></label>
+        <input asp-for="Grade" value="@Model.Grade" />
+        <span asp-validation-for="Grade" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FinishDate" class="control-label"></label>
+        <input asp-for="FinishDate" value="@Model.FinishDate" />
+        <span asp-validation-for="FinishDate" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Save" />
+    </div>
+</form>
+

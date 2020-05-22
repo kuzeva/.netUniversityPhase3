@@ -1,0 +1,106 @@
+﻿@model UniversityStudentsApp.Models.Enrollment
+@{
+    ViewData["Title"] = "GetStudentByEnrollmentId";
+}
+
+<h3> Student: @Html.DisplayFor(model => model.Student.FullName) </h3>
+
+<h5> Changes for course: @Html.DisplayFor(model => model.Course.Title)</h5>
+
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.Semester)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.Semester)
+</dd>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.Year)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.Year)
+</dd>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.ExamPoints)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.ExamPoints)
+</dd>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.SeminarPoints)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.SeminarPoints)
+</dd>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.ProjectPoints)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.ProjectPoints)
+</dd>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.AdditionalPoints)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.AdditionalPoints)
+</dd>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.Grade)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.Grade)
+</dd>
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.FinishDate)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.FinishDate)
+</dd>
+
+</dl>
+
+<div class="col-md-4">
+    <form asp-action="GetStudentByEnrollmentId">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="ProjectURL" class="control-label"></label>
+            <input asp-for="ProjectURL" class="form-control" />
+            <span asp-validation-for="ProjectURL" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+
+            <label asp-for="SeminarURL" class="control-label"></label>
+            @if (Model.SeminarURL == null)
+            {
+                <input type="file" name="semUrl" />
+            }
+            else
+            {
+                <label>
+                    Selected file:
+                    <a href="@("/seminals/" + Model.SeminarURL)" target="_blank">
+                        @Model.SeminarURL
+                    </a>
+                </label>
+                <input type="file" name="semUrl" />
+            }
+
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-controller="Enrollments" asp-action="GetCoursesByStudent"
+       asp-route-id="@Model.StudentId">Back</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+}
+

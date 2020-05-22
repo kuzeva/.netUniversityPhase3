@@ -1,0 +1,70 @@
+﻿@model UniversityStudentsApp.Models.Course
+@{
+    ViewData["Title"] = "GetCoursеById";
+}
+
+    <h1> @Html.DisplayFor(item => item.Title) </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Year </th>
+                <th>Semester</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                @if (Model.Semester != 0)
+                {
+                    <td> Not Specified </td>
+                    <td>@Model.Semester</td>
+                }
+            </tr>
+        </tbody>
+    </table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> Professors </th>
+            <th> Degree </th>
+            <th> Academic Rank </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            @if (Model.FirstTeacher != null)
+            {
+                <td>
+                    <a asp-controller="Teachers" asp-action="Details"
+                       asp-route-id="@Model.FirstTeacher.Id">@Model.FirstTeacher.FullName</a>
+                </td>
+                <td>
+                    @Model.FirstTeacher.Degree
+                </td>
+                <td>
+                    @Model.FirstTeacher.AcademicRank
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.SecondTeacher != null)
+            {
+                <td>
+                    <a asp-controller="Teachers" asp-action="Details"
+                       asp-route-id="@Model.SecondTeacher.Id">@Model.SecondTeacher.FullName</a>
+                </td>
+                <td>
+                    @Model.SecondTeacher.Degree
+                </td>
+                <td>
+                    @Model.SecondTeacher.AcademicRank
+                </td>
+            }
+        </tr>
+    </tbody>
+</table>
+
+

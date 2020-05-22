@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "GetCoursesByStudent";
+}
+
+<h3>Courses from this student</h3>
+
+<table class="table">
+    <thead>
+        <th> ID </th>
+        <th> Title </th>
+        <th> Points </th>
+        <th> Grade </th>
+        <th> ProjectUrl </th>
+        <th> SeminarUrl</th>
+    </thead>
+
+    <tbody>
+        @if(Model != null)
+        {
+            @foreach(var course in Model)
+            {
+                <tr>
+                    <td>
+                        @course.Course.Id
+                    </td>
+                    <td>
+                        @course.Course.Title
+                    </td>
+                    <td>
+                         @course.ExamPoints +@course.ProjectPoints + @course.SeminarPoints + @course.AdditionalPoints
+                    </td>
+                    <td>
+                        @course.Grade
+                    </td>
+                    <td>
+                        @course.ProjectUrl
+                    </td>
+                    <td>
+                        @course.SemonarUrl
+                    </td>
+                    <td>
+                        <a asp-controller="Enrollments" asp-action="GetStudentByEnrollmentId" asp-route-id="@course.Id"> Change </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

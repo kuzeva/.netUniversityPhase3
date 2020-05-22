@@ -1,0 +1,112 @@
+﻿@model IEnumerable<UniversityStudentsApp.Models.Enrollment>
+@{
+    ViewData["Title"] = "GetStudentsByTeacherCourse";
+}
+
+<h3>Students on this course</h3>
+
+<form asp-controller="Enrollments" asp-action="GetStudentsByTeacherCourse">
+    Choose Year: <input type="text" name="year" />
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Index
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                Total Points
+            </th>
+            <th>
+                Seminar Url
+            </th>
+            <th>
+                Project Url
+            </th>
+
+            <th>
+                Grade
+            </th>
+            <th>
+                Enrollment Date
+            </th>
+
+            <th>Finish Date</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var student in Model)
+        {
+            <tr>
+
+                @if (student.Student.FullName != null)
+                {
+                    <td>
+                        @student.Student.FullName
+                    </td>
+                }
+
+                <td>
+                    @student.Student.StudentId
+                </td>
+                <td>
+                    @student.Year
+                </td>
+                <td>
+                   int points = @student.ExamPoints + @student.ProjectPoints + @student.SeminarPoints + @student.AdditionalPoints
+
+                </td>
+                <td>
+                    @student.SeminarURL
+                </td>
+                <td>
+                    @student.ProjectURL
+                </td>
+                <td>
+                    @student.Grade
+                </td>
+                <td>
+                    @student.Student.EnrollmentDate
+                </td>
+                <td>
+                    @if (student.FinishDate != null)
+                    {
+                        @student.FinishDate
+                    }
+                    else
+                    {
+                        <p>Enrolled</p>
+                    }
+
+                </td>
+                <td>
+                    @if (student.FinishDate == null)
+                    {
+                        <a asp-controller="Enrollments" asp-action="TeacherStudentChange" asp-route-id="@student.Id">Make Changes</a>
+                    }
+                    else
+                    {
+                        <p>Finished</p>
+                    }
+
+                </td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
