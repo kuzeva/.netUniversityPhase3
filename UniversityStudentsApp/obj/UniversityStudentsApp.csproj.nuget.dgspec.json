@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bojan\\Desktop\\.netUniversityPhase2\\UniversityStudentsApp\\UniversityStudentsApp.csproj": {}
+    "C:\\Users\\bojan\\Desktop\\.netUniversityPhase3\\UniversityStudentsApp\\UniversityStudentsApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bojan\\Desktop\\.netUniversityPhase2\\UniversityStudentsApp\\UniversityStudentsApp.csproj": {
+    "C:\\Users\\bojan\\Desktop\\.netUniversityPhase3\\UniversityStudentsApp\\UniversityStudentsApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bojan\\Desktop\\.netUniversityPhase2\\UniversityStudentsApp\\UniversityStudentsApp.csproj",
+        "projectUniqueName": "C:\\Users\\bojan\\Desktop\\.netUniversityPhase3\\UniversityStudentsApp\\UniversityStudentsApp.csproj",
         "projectName": "UniversityStudentsApp",
-        "projectPath": "C:\\Users\\bojan\\Desktop\\.netUniversityPhase2\\UniversityStudentsApp\\UniversityStudentsApp.csproj",
+        "projectPath": "C:\\Users\\bojan\\Desktop\\.netUniversityPhase3\\UniversityStudentsApp\\UniversityStudentsApp.csproj",
         "packagesPath": "C:\\Users\\bojan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bojan\\Desktop\\.netUniversityPhase2\\UniversityStudentsApp\\obj\\",
+        "outputPath": "C:\\Users\\bojan\\Desktop\\.netUniversityPhase3\\UniversityStudentsApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bojan\\AppData\\Roaming\\NuGet\\NuGet.Config",
